@@ -19,13 +19,13 @@ namespace Bloggie.Web.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Add(AddTagRequest addTagRequest) {
+        public async Task<IActionResult> Add(AddTagRequest addTagRequest) {
             var tag = new Tag {
                 Name = addTagRequest.Name,
                 DisplayName = addTagRequest.DisplayName,
             };
-            bloggieDbContext.Tags.Add(tag);
-            bloggieDbContext.SaveChanges();
+            await bloggieDbContext.Tags.AddAsync(tag);
+            await bloggieDbContext.SaveChangesAsync();
             return RedirectToAction("List");
         }
 
@@ -47,24 +47,24 @@ namespace Bloggie.Web.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Edit(EditTagRequest editTagRequest) {
+        public async Task<IActionResult> Edit(EditTagRequest editTagRequest) {
             var tagTmp = new Tag {
                 Name = editTagRequest.Name,
                 DisplayName = editTagRequest.DisplayName
             };
-            var existTag = bloggieDbContext.Tags.Find(editTagRequest.Id);
+            var existTag = await bloggieDbContext.Tags.FindAsync(editTagRequest.Id);
             if (existTag != null) {
                 existTag.Name = tagTmp.Name;
                 existTag.DisplayName = tagTmp.DisplayName;
-                bloggieDbContext.SaveChanges();
+                await bloggieDbContext.SaveChangesAsync();
                 return RedirectToAction("List");
             }
             return View("Edit", new { id = existTag.Id });
         }
 
         [HttpGet]
-        public IActionResult Delete(Guid id) {
-            var tagFound = bloggieDbContext.Tags.Find(id);
+        public async Task<IActionResult> Delete(Guid id) {
+            var tagFound = await bloggieDbContext.Tags.FindAsync(id);
             if (tagFound != null) {
                 return View(tagFound);
             }
@@ -72,11 +72,11 @@ namespace Bloggie.Web.Controllers {
         }
 
         [HttpPost]
-        public IActionResult ConfirmDelete(Guid id) {
-            var tagFound = bloggieDbContext.Tags.Find(id);
+        public async Task<IActionResult> ConfirmDelete(Guid id) {
+            var tagFound = await bloggieDbContext.Tags.FindAsync(id);
             if (tagFound != null) {
                 bloggieDbContext.Remove(tagFound);
-                bloggieDbContext.SaveChanges();
+                await bloggieDbContext.SaveChangesAsync();
                 return RedirectToAction("List");
             }
             return RedirectToAction("List");
