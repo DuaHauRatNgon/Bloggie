@@ -1,0 +1,45 @@
+﻿@model Bloggie.Web.Models.ViewModels.AddBlogRequest
+
+<div class="container py-2">
+    <form method="post">
+      <div class="form-group">
+        <label class="form-label">Heading</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Heading">
+      </div>
+      <div class="form-group">
+        <label class="form-label">PageTitle</label>
+        <input type="text" class="form-control" id="pageTitle" asp-for="PageTitle">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Content</label>
+        <textarea type="text" class="form-control" id="content" asp-for="Content"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Short Description</label>
+        <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Feature Image Url</label>
+        <input type="text" class="form-control" id="featureImageUrl" asp-for="FeatureImageUrl">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ulr Handle</label>
+        <input type="text" class="form-control" id="ulrHandle" asp-for="UlrHandle">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Published Date</label>
+        <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" asp-for="Author">
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible">
+ x         <label class="form-check-label" for="Visible">
+            Is Visible ?
+          </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

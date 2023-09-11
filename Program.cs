@@ -1,4 +1,5 @@
 using Bloggie.Web.Data;
+using Bloggie.Web.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -13,6 +14,7 @@ namespace Bloggie.Web {
                 string connectString = builder.Configuration.GetConnectionString("AppDbContext");
                 options.UseSqlServer(connectString);
             });
+            builder.Services.AddScoped<ITagRepository, TagRepository>();
 
             var app = builder.Build();
 
