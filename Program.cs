@@ -15,6 +15,7 @@ namespace Bloggie.Web {
                 options.UseSqlServer(connectString);
             });
             builder.Services.AddScoped<ITagRepository, TagRepository>();
+            builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
             var app = builder.Build();
 
