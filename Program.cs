@@ -16,6 +16,7 @@ namespace Bloggie.Web {
             });
             builder.Services.AddScoped<ITagRepository, TagRepository>();
             builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+            builder.Services.AddScoped<IImageRespository, CloudinaryImageRepository>();
 
             var app = builder.Build();
 

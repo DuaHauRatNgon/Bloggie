@@ -146,5 +146,7 @@ namespace Bloggie.Web.Controllers {
             // Show error notification
             return RedirectToAction("Edit", new { id = editBlogPostRequest.Id });
         }
+
+
     }
 }
