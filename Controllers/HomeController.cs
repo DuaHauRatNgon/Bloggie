@@ -19,9 +19,13 @@ namespace Bloggie.Web.Controllers {
             this.tagRepository = tagRepository;
         }
 
-        public async Task<IActionResult> Index() {
+        public async Task<IActionResult> Index(string searchString) {
             // getting all blogs
             var blogPosts = await blogPostRepository.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString)) {
+                blogPosts = await blogPostRepository.SearchByWordContain(searchString);
+            }
 
             // get all tags
             var tags = await tagRepository.GetAllAsync();

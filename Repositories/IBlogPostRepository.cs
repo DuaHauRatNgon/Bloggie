@@ -13,5 +13,7 @@ namespace Bloggie.Web.Repositories {
         Task<BlogPost?> UpdateAsync(BlogPost blogPost);
 
         Task<BlogPost?> DeleteAsync(Guid id);
+
+        Task<IEnumerable<BlogPost>> SearchByWordContain(string searchString);
     }
 }

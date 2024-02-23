@@ -63,5 +63,10 @@ namespace Bloggie.Web.Repositories {
             }
             return null;
         }
+
+        public async Task<IEnumerable<BlogPost>> SearchByWordContain(string searchString) {
+            var posts = bloggieDbContext.BlogPosts.Include(x => x.Tags).Where(x => x.Heading.Contains(searchString)).ToListAsync();
+            return await posts;
+        }
     }
 }
