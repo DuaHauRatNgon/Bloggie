@@ -5,9 +5,7 @@
     ViewData["Title"] = "Add";
 }
 
-<h1>Add</h1>
-
-<h4>Tag</h4>
+<h1>Tạo mới tag</h1>
 <hr />
 
 @*form do code genarator (chay duoc)*@
@@ -37,11 +35,11 @@
     <form method="post">
         <div class="mb-3">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" asp-for="Name">Name</input>
+            <input type="text" class="form-control" id="name" asp-for="Name"></input>
         </div>
         <div class="mb-3">
-            <label class="form-label">Display Name</label>
-            <input type="text" class="form-control" id="DisplayName" asp-for="DisplayName">Display Name</input>
+            <label class="form-label">Mô tả</label>
+            <input type="text" class="form-control" id="DisplayName" asp-for="DisplayName"></input>
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-dark">Submit</button>

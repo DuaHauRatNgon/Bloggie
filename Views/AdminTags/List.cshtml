@@ -6,10 +6,10 @@
     ViewData["Title"] = "List";
 }
 
-<h1>List</h1>
+<h1>Danh sách tag</h1>
 
 <p>
-    <a class="" asp-action="Add" >Add Tag</a>
+    <a class="" asp-action="Add" >Thêm</a>
 </p>
 
 @if (Model != null && Model.Any()) {
@@ -25,7 +25,7 @@
                         </th>
                         <th>
                     @*@Html.DisplayNameFor(model => model.DisplayName)*@
-                            Display Name
+                            Mô tả
                         </th>
                         <th></th>
                     </tr>
@@ -45,9 +45,9 @@
                         @item.DisplayName
                                         </td>
                                 <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
                             @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
                         </td>
                                     </tr>
             }
@@ -56,5 +56,5 @@
 
 }
 else {
-        <p>Not tags found !</p>
+        <p>Không tìm thấy tag nào !</p>
 }
